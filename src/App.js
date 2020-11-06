@@ -6,7 +6,7 @@ import {
     Switch,
 } from 'react-router-dom';
 import ListPage from './ListPage.js';
-import CreatePage from './CreatePage.js';
+import CreatePage from './Create.js';
 import DetailPage from './DetailPage.js';
 
 export default class App extends Component {
@@ -18,7 +18,7 @@ export default class App extends Component {
                         <Route 
                             path="/" 
                             exact
-                            render={(routerProps) => <ListPage {...routerProps} />} 
+                            render={(routerProps) => <List {...routerProps} />} 
                         />
                         <Route 
                             path="/create" 
