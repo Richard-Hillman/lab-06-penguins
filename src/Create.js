@@ -22,7 +22,7 @@ componentDidMount = async () => {
 handleSubmit = async (e) => {
     e.preventDefault(); 
 
-    await createPenguins({
+    await createPenguin({
         name: this.state.name,
         number_of_feet: this.state.numberOfFeet,
         eats_fish: this.state.eatsFish,
