@@ -14,7 +14,7 @@ export default class List extends React.Component {
   }
 
   componentDidMount = async () => {
-    const penguins = await fetchpenguins();
+    const penguins = await fetchPenguins();
 
     // const response = await fetch.get('https://frozen-castle-37316.herokuapp.com/penguins');
     this.setState({ penguins });

@@ -8,6 +8,7 @@ import {
 import ListPage from './ListPage.js';
 import CreatePage from './Create.js';
 import DetailPage from './DetailPage.js';
+import List from './List.js'
 
 export default class App extends Component {
     render() {
