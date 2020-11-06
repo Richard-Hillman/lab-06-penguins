@@ -1,25 +1,27 @@
 
 import React from 'react';
 import './App.css';
-import fetch from 'superagent';
+import { fetchpenguins } from './Fetchers.js'
 
-
-export default class App extends React.Component {
+export default class List extends React.Component {
 
   state = {
-    penguinData:[], 
+    penguins:[], 
     name:'',
     number_of_feet:'',
     eats_fish:'',
-    size:'',
-  };
+    size:''
+  }
 
   componentDidMount = async () => {
-    const response = await fetch.get('https://frozen-castle-37316.herokuapp.com/penguins');
-    this.setState({ penguinData: response.body});
+    const penguins = await fetchpenguins();
+
+    // const response = await fetch.get('https://frozen-castle-37316.herokuapp.com/penguins');
+    this.setState({ penguins });
   }
 
   render() {
+    const { penguins } = this.state; 
     return (
       <>
       <div className="App">
@@ -27,10 +29,10 @@ export default class App extends React.Component {
         This is the header
         </header>
       </div>
-console.log(penguinData);
+console.log(penguins);
       <div calssName="map">
         {
-          this.state.penguinData.map(penguin => 
+          penguins.map(penguin => 
             <div>
               <h2>Penguin Type: {penguin.name}</h2>
               <div>Number Of Feet: {penguin.number_of_feet}</div>

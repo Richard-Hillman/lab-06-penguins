@@ -67,8 +67,8 @@ render() {
                             this.state.sizes.map(size => <option
                                 selected={this.state.sizeId === size.id}
                                 key={size.id}
-                                value={size.id}
-                                    {size.size}>
+                                value={size.id}>
+                                    {size.size}
                             </option>
                             )
                         }
