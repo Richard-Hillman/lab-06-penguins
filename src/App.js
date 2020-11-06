@@ -1,48 +1,38 @@
-
-import React from 'react';
+import React, { Component } from 'react'
 import './App.css';
-import fetch from 'superagent';
+import {
+    BrowserRouter as Router, 
+    Route, 
+    Switch,
+} from 'react-router-dom';
+import ListPage from './ListPage.js';
+import CreatePage from './CreatePage.js';
+import DetailPage from './DetailPage.js';
 
-
-export default class App extends React.Component {
-
-  state = {
-    penguinData:[], 
-    name:'',
-    number_of_feet:'',
-    eats_fish:'',
-    size:'',
-  };
-
-  componentDidMount = async () => {
-    const response = await fetch.get('https://frozen-castle-37316.herokuapp.com/penguins');
-    this.setState({ penguinData: response.body});
-  }
-
-  render() {
-    return (
-      <>
-      <div className="App">
-        <header className="App-header">
-        This is the header
-        </header>
-      </div>
-console.log(penguinData);
-      <div calssName="map">
-        {
-          this.state.penguinData.map(penguin => 
+export default class App extends Component {
+    render() {
+        return (
             <div>
-              <h2>Penguin Type: {penguin.name}</h2>
-              <div>Number Of Feet: {penguin.number_of_feet}</div>
-              <div>Eats Fish: {penguin.eats_fish.toString()}</div>
-              <div>How Large: {penguin.size}</div>
+                <Router>
+                    <Switch>
+                        <Route 
+                            path="/" 
+                            exact
+                            render={(routerProps) => <ListPage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/create" 
+                            exact
+                            render={(routerProps) => <CreatePage {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/detail/:id" 
+                            exact
+                            render={(routerProps) => <DetailPage {...routerProps} />} 
+                        />
+                    </Switch>
+                </Router>
             </div>
-          )
-        }
-      </div>
-      </>
-    );
-  }
-
+        )
+    }
 }
-
