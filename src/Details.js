@@ -2,17 +2,17 @@ import React, { Component } from 'react'
 import {
     updatePenguin,
     fetchPenguin,
-    fetchSizes,
-    fetchPenguins
-} from './Fetchers.js'
+    fetchSizes
 
+} from './Fetchers.js'
+import Navigation from './Navigation.js'
 const User = { 
     userId: 1 
 };
 
 export default class Details extends Component {
     state = {
-        size: [],
+        sizes: [],
         sizeId: 1
 
     }
@@ -22,7 +22,7 @@ export default class Details extends Component {
         const penguin = await fetchPenguin(this.props.match.params.id);
         const sizesStringed = penguin.size;
    
-        const matchingSize = size.find((size)=> {
+        const matchingSize = sizes.find((size)=> {
             return size.name === sizesStringed
         });
 
@@ -60,6 +60,7 @@ render() {
     return (
         <div>
             <h2>Update Details</h2>
+            <Navigation />
             <form onSubmit={this.handleSubmit}>
                 <label>
                     Size: <select onChange={this.handleSizeD}>

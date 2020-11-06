@@ -5,9 +5,9 @@ import {
     Route, 
     Switch,
 } from 'react-router-dom';
-import ListPage from './ListPage.js';
-import CreatePage from './Create.js';
-import DetailPage from './DetailPage.js';
+
+import Create from './Create.js';
+import Details from './Details.js';
 import List from './List.js'
 
 export default class App extends Component {
@@ -24,12 +24,12 @@ export default class App extends Component {
                         <Route 
                             path="/create" 
                             exact
-                            render={(routerProps) => <CreatePage {...routerProps} />} 
+                            render={(routerProps) => <Create {...routerProps} />} 
                         />
                         <Route 
                             path="/detail/:id" 
                             exact
-                            render={(routerProps) => <DetailPage {...routerProps} />} 
+                            render={(routerProps) => <Details {...routerProps} />} 
                         />
                     </Switch>
                 </Router>

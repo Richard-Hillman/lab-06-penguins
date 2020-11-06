@@ -1,22 +1,30 @@
-import { render } from '@testing-library/react';
+
 import React, { Component } from 'react'
 import { fetchSizes, createPenguin } from './Fetchers.js';
-
+import Navigation from './Navigation.js'
 // ==========================================================================
 
+
 const User = {
-    userId: 1
+    userId: 1,
 };
 
-export default class Create extends Compnent {
+export default class Create extends Component {
     state = {
-        sizes: []
+        sizes: [],
+        penguins:[], 
+        name:'fork',
+        numberOfFeet: 3,
+        eatsFish: true,
+        size:'small',
+        sizeId: 1 
     }
 
 
     componentDidMount = async () => {
-        const sizes = await fetchSizes();
+        const sizes = await fetchSizes()
         this.setState({ sizes });
+       
     }
 
     handleSubmit = async (e) => {
@@ -54,19 +62,25 @@ export default class Create extends Compnent {
 // =============================================================================
 
     render() {
+        console.log(this.state)
         return (
-            
+            <>
+            <Navigation />
+
             <form onSubmit={this.handleSubmit}>
                 <label>
 
                     <h1>Create a Penguin</h1>
 
                     <div>
-                        <input onChange={this.handleName} type='text' defaultValue='Penguin Species'> </input>
+                        <input onChange={this.handleName} type="text" defaultValue="Penguin Species" value={this.state.name} /> 
                     </div>
                     
                     <div>
-                        <input onChange={this.handleFeet} type='number' defaultValue='Number Of Feet'> </input>
+                        <div>
+                        Number Of Feet: 
+                        </div>
+                        <input onChange={this.handleFeet} type="number" defaultValue="0" value={this.state.numberOfFeet}/>
                     </div>
 
                 </label>
@@ -74,8 +88,8 @@ export default class Create extends Compnent {
                 <label>
 
                     <select onChange={this.handleTruthD}>
-                        <option value='true'>TRUE</option>
-                        <option value='false'>FALSE</option>
+                        <option value={true}>TRUE</option>
+                        <option value={false}>FALSE</option>
                     </select>
 
                     <select onChange={this.handleSizeD}> 
@@ -87,7 +101,11 @@ export default class Create extends Compnent {
                     </select>
                 </label>
 
+                <button>Submit</button>
+
             </form>
+
+            </>
         )
     }
 }

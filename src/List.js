@@ -1,8 +1,8 @@
 
 import React from 'react';
 import './App.css';
-import { fetchpenguins } from './Fetchers.js'
-
+import { fetchPenguins } from './Fetchers.js'
+import Navigation from './Navigation'
 export default class List extends React.Component {
 
   state = {
@@ -26,11 +26,11 @@ export default class List extends React.Component {
       <>
       <div className="App">
         <header className="App-header">
-        This is the header
+        <Navigation />
         </header>
       </div>
-console.log(penguins);
-      <div calssName="map">
+
+      <div className="map">
         {
           penguins.map(penguin => 
             <div>

@@ -28,6 +28,19 @@ export async function fetchPenguin(someId) {
 
 // ======================================================================================================
 
+export async function fetchSizes() {
+    try {
+        const response = await request.get(`${URL}sizes`);
+
+        return response.body;
+    } catch(err) {
+        throw err;
+    }
+}
+
+
+// ======================================================================================================
+
 export async function createPenguin(newPenguin)  {
     try {
         await request
