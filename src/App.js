@@ -1,48 +1,39 @@
-
-import React from 'react';
+import React, { Component } from 'react'
 import './App.css';
-import fetch from 'superagent';
+import {
+    BrowserRouter as Router, 
+    Route, 
+    Switch,
+} from 'react-router-dom';
 
+import Create from './Create.js';
+import Update from './Update.js';
+import List from './List.js'
 
-export default class App extends React.Component {
-
-  state = {
-    penguinData:[], 
-    name:'',
-    number_of_feet:'',
-    eats_fish:'',
-    size:'',
-  };
-
-  componentDidMount = async () => {
-    const response = await fetch.get('https://frozen-castle-37316.herokuapp.com/penguins');
-    this.setState({ penguinData: response.body});
-  }
-
-  render() {
-    return (
-      <>
-      <div className="App">
-        <header className="App-header">
-        This is the header
-        </header>
-      </div>
-console.log(penguinData);
-      <div calssName="map">
-        {
-          this.state.penguinData.map(penguin => 
+export default class App extends Component {
+    render() {
+        return (
             <div>
-              <h2>Penguin Type: {penguin.name}</h2>
-              <div>Number Of Feet: {penguin.number_of_feet}</div>
-              <div>Eats Fish: {penguin.eats_fish.toString()}</div>
-              <div>How Large: {penguin.size}</div>
+                <Router>
+                    <Switch>
+                        <Route 
+                            path="/" 
+                            exact
+                            render={(routerProps) => <List {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/Create" 
+                            exact
+                            render={(routerProps) => <Create {...routerProps} />} 
+                        />
+                        <Route 
+                            path="/Update/:id" 
+                            exact
+                            render={(routerProps) => <Update {...routerProps} />} 
+                        />
+                    </Switch>
+                </Router>
             </div>
-          )
-        }
-      </div>
-      </>
-    );
-  }
-
+        )
+    }
 }
-
