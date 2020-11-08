@@ -7,7 +7,7 @@ import {
 } from 'react-router-dom';
 
 import Create from './Create.js';
-import Details from './Details.js';
+import Update from './Update.js';
 import List from './List.js'
 
 export default class App extends Component {
@@ -22,14 +22,14 @@ export default class App extends Component {
                             render={(routerProps) => <List {...routerProps} />} 
                         />
                         <Route 
-                            path="/create" 
+                            path="/Create" 
                             exact
                             render={(routerProps) => <Create {...routerProps} />} 
                         />
                         <Route 
-                            path="/detail/:id" 
+                            path="/Update/:id" 
                             exact
-                            render={(routerProps) => <Details {...routerProps} />} 
+                            render={(routerProps) => <Update {...routerProps} />} 
                         />
                     </Switch>
                 </Router>

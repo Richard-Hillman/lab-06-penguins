@@ -71,7 +71,7 @@ export async function updatePenguin(someId, newPenguin)  {
 
 export async function deletePenguin(someId)  {
     try {
-        await request.get(`${URL}penguins/${someId}`);
+        await request.delete(`${URL}penguins/${someId}`);
 
         return;
     } catch (err) {

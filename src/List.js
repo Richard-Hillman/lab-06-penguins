@@ -3,6 +3,8 @@ import React from 'react';
 import './App.css';
 import { fetchPenguins } from './Fetchers.js'
 import Navigation from './Navigation'
+import { Link } from 'react-router-dom'
+
 export default class List extends React.Component {
 
   state = {
@@ -10,7 +12,8 @@ export default class List extends React.Component {
     name:'',
     number_of_feet:'',
     eats_fish:'',
-    size:''
+    sizes:'',
+    size_id:''
   }
 
   componentDidMount = async () => {
@@ -26,7 +29,7 @@ export default class List extends React.Component {
       <>
       <div className="App">
         <header className="App-header">
-        <Navigation />
+          <Navigation />
         </header>
       </div>
 
@@ -34,10 +37,12 @@ export default class List extends React.Component {
         {
           penguins.map(penguin => 
             <div>
-              <h2>Penguin Type: {penguin.name}</h2>
+              <Link to={`/update/${penguin.id}`}>
+                Penguin Type: {penguin.name}
+              </Link>
               <div>Number Of Feet: {penguin.number_of_feet}</div>
               <div>Eats Fish: {penguin.eats_fish.toString()}</div>
-              <div>How Large: {penguin.size}</div>
+              <div>How Large: {penguin.sizes}</div>
             </div>
           )
         }

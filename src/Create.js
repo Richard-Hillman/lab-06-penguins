@@ -16,7 +16,6 @@ export default class Create extends Component {
         name:'fork',
         numberOfFeet: 3,
         eatsFish: true,
-        size:'small',
         sizeId: 1 
     }
 
@@ -24,7 +23,6 @@ export default class Create extends Component {
     componentDidMount = async () => {
         const sizes = await fetchSizes()
         this.setState({ sizes });
-       
     }
 
     handleSubmit = async (e) => {
@@ -73,6 +71,9 @@ export default class Create extends Component {
                     <h1>Create a Penguin</h1>
 
                     <div>
+                        Name Of Species:
+                    </div>
+                    <div>     
                         <input onChange={this.handleName} type="text" defaultValue="Penguin Species" value={this.state.name} /> 
                     </div>
                     

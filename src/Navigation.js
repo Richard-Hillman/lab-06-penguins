@@ -11,13 +11,10 @@ export default class Navigation extends Component {
                 </div>
 
                 <div>
-                    <Link to ="/create">Create</Link>
+                    <Link to ="/Create">Create</Link>
                 </div>
 
-                <div>
-                    <Link to ="/detail/:id">Details</Link>
-                </div>
-
+                
             </div>
         )
     }
