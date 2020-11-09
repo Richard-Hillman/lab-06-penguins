@@ -5,14 +5,16 @@ export default class Navigation extends Component {
     render() {
         return (
             <div className="nav">
-                
-                <div>
-                    <Link to="/">LIST</Link>
-                </div>
-
-                <div>
-                    <Link to ="/Create">Create</Link>
-                </div>
+                <span>
+                    <span className="one">
+                        <Link to="/">LIST</Link>
+                    </span>
+               
+                    <span className="two">
+                        <Link to ="/Create">Create</Link>
+                    </span>
+        
+                </span>
 
                 
             </div>

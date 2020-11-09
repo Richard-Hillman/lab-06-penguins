@@ -1,7 +1,8 @@
 
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 import { fetchSizes, createPenguin } from './Fetchers.js';
-import Navigation from './Navigation.js'
+import { Link } from 'react-router-dom';
+import './create.css';
 // ==========================================================================
 
 
@@ -63,7 +64,10 @@ export default class Create extends Component {
         console.log(this.state)
         return (
             <>
-            <Navigation />
+            <div className="header">
+                <Link to="/">LIST</Link>
+            </div>
+
 
             <form onSubmit={this.handleSubmit}>
                 <label>

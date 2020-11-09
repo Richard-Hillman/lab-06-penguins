@@ -8,6 +8,7 @@ import {
 } from './Fetchers.js';
 import Navigation from './Navigation.js';
 import request from 'superagent';
+import './update.css';
 
 
 
@@ -85,8 +86,7 @@ handleDelete = async (e) => {
 render() {
     return (
         <div>
-            <h2>Update Details</h2>
-            <div>
+            <div className="header">
                 <Navigation />
             </div>
             <form onSubmit={this.handleSubmit}>
