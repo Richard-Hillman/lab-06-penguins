@@ -28,7 +28,7 @@ export default class List extends React.Component {
     return (
       <>
       <div className="App">
-        <header className="App-header">
+        <header>
           <Navigation />
         </header>
       </div>
@@ -36,7 +36,7 @@ export default class List extends React.Component {
       <div className="map">
         {
           penguins.map(penguin => 
-            <div>
+            <div className="penguinS">
               <Link to={`/update/${penguin.id}`}>
                 Penguin Type: {penguin.name}
               </Link>

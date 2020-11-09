@@ -1,0 +1,29 @@
+.header {
+    color: palevioletred;
+    font-size: 45px;
+    font-weight: 80px;
+    display: flex;
+    justify-content: center;
+    border: palevioletred 1px solid;
+}
+
+body{ 
+    background-image: url(./penguin4.jpg);
+    background-size: cover;
+}
+
+form {
+    margin: 100px;
+    padding: 100px;
+    background-image: url(./penguin3.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: palevioletred;
+    font-size:x-large;
+    font-weight: 80px;
+  }
+
+button {
+    width: 120px;
+    border-radius: 5px;
+}
